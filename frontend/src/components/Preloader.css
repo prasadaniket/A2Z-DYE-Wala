@@ -1,0 +1,76 @@
+.preloader-overlay-v2 {
+  position: fixed;
+  inset: 0;
+  background-color: #FFFFFF;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.preloader-visual-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.diamond-container {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diamond-svg {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.diamond-glow {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: radial-gradient(circle, rgba(120, 82, 255, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0;
+  z-index: 0;
+}
+
+.preloader-text-v2 {
+  text-align: center;
+}
+
+.preloader-brand-v2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: var(--pu-deep);
+  margin-bottom: 0.5rem;
+  overflow: hidden;
+}
+
+.preloader-char {
+  display: inline-block;
+}
+
+.preloader-tagline {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  color: var(--pu-muted);
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .preloader-brand-v2 {
+    font-size: 1.5rem;
+  }
+}
