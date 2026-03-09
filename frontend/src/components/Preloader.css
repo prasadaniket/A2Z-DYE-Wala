@@ -42,35 +42,5 @@
   z-index: 0;
 }
 
-.preloader-text-v2 {
-  text-align: center;
-}
+/* Removed branding text styles to focus on diamond animation */
 
-.preloader-brand-v2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.5rem;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: var(--pu-deep);
-  margin-bottom: 0.5rem;
-  overflow: hidden;
-}
-
-.preloader-char {
-  display: inline-block;
-}
-
-.preloader-tagline {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
-  color: var(--pu-muted);
-  font-weight: 300;
-}
-
-@media (max-width: 768px) {
-  .preloader-brand-v2 {
-    font-size: 1.5rem;
-  }
-}

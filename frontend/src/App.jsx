@@ -9,7 +9,8 @@ import Preloader from './components/Preloader';
 import './index.css';
 
 function App() {
-  const [isLoading, setIsLoading] = React.useState(true);
+  // Only show preloader on Home page ('/') upon refresh
+  const [isLoading, setIsLoading] = React.useState(window.location.pathname === '/');
 
   return (
     <BrowserRouter>

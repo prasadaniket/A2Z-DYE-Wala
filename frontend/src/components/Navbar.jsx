@@ -17,7 +17,7 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Collection', path: '/collection' },
+    { name: 'Collections', path: '/collection' },
     { name: 'Our Story', path: '/our-story' }
   ];
 
@@ -31,29 +31,33 @@ const Navbar = () => {
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         
-        {/* Brand Name */}
-        <Link to="/" style={{ 
-          fontFamily: 'Playfair Display', 
-          fontSize: '24px', 
-          fontWeight: '700',
-          letterSpacing: '1px',
-          color: 'var(--text-primary)'
-        }}>
-          A2Z DYE Wala
+        {/* Brand Logo */}
+        <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+          <img 
+            src="/assets/Logo/DYE logo.png" 
+            alt="DYE Logo" 
+            style={{ height: '55px', objectFit: 'contain' }}
+          />
         </Link>
 
         {/* Desktop Menu */}
         <div style={{ display: 'flex', gap: '35px', alignItems: 'center' }} className="desktop-menu">
-          {navLinks.map((link) => (
+          {navLinks.map((link, index) => (
             <Link 
               key={link.name} 
               to={link.path} 
+              className={`nav-link animate-fadeIn ${location.pathname === link.path ? 'active' : ''}`}
               style={{
                 fontFamily: 'Inter',
-                fontSize: '15px',
+                fontSize: '20px',
                 fontWeight: location.pathname === link.path ? '600' : '400',
                 color: location.pathname === link.path ? 'var(--accent-primary)' : 'var(--text-primary)',
-                transition: 'color 0.3s ease'
+                transition: 'color 1s ease',
+                animationDelay: `${index * 0.3}s`,
+                animationDuration: '1.2s',
+                opacity: 0,
+                position: 'relative',
+                padding: '2px 0'
               }}
               onMouseOver={(e) => e.target.style.color = 'var(--accent-primary)'}
               onMouseOut={(e) => e.target.style.color = location.pathname === link.path ? 'var(--accent-primary)' : 'var(--text-primary)'}
@@ -108,6 +112,25 @@ const Navbar = () => {
       )}
 
       <style>{`
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          width: 80%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: var(--accent-primary);
+          transform: scaleX(0);
+          transform-origin: bottom right;
+          transition: transform 0.4s ease-out;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+          transform: scaleX(1);
+          transform-origin: bottom left;
+        }
+
         @media (max-width: 768px) {
           .desktop-menu { display: none !important; }
           .mobile-toggle { display: block !important; }
