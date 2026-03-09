@@ -1,16 +1,7 @@
-/* Color Theme Roots (White & Purple) */
-:root {
-  --pu-darkest: #190B3B;
-  --pu-deep: #2D1B4E;
-  --pu-muted: #6B5B95;
-  --pu-accent: #7852FF;
-  --pu-light: #B28DFF;
-  --pu-bg-tint: #F8F5FB;
-  --pure-white: #FFFFFF;
-}
+/* Our Story Section Styles */
 
 .os-wrapper-v2 {
-  background: radial-gradient(circle at 100% 50%, rgba(248, 245, 251, 1) 0%, rgba(255, 255, 255, 1) 60%);
+  background: radial-gradient(circle at 100% 50%, var(--bg-secondary) 0%, var(--bg-primary) 60%);
   color: var(--pu-deep);
   font-family: 'Inter', sans-serif;
   overflow-x: hidden;
@@ -40,6 +31,8 @@
   z-index: 10;
   background-color: var(--pure-white);
   overflow: hidden;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 .hero-left-v2 {
@@ -52,7 +45,7 @@
 .hero-right-v2 {
   flex: 1;
   position: relative;
-  background-color: #fcfaff;
+  background-color: var(--bg-secondary);
 }
 
 .hero-split-img {
@@ -244,7 +237,7 @@
 /* --- Asymmetric Values Grid --- */
 .values-section-v2 {
   padding: 10rem 5vw;
-  background-color: var(--pure-white);
+  background-color: var(--bg-primary);
   position: relative;
 }
 
@@ -406,7 +399,7 @@
 
 /* --- Artisans Section (Carousel) --- */
 .team-section-v3 {
-  background-color: var(--pure-white);
+  background-color: var(--bg-primary);
   padding: 8rem 0;
   position: relative;
   z-index: 10;

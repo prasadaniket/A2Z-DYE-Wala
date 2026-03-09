@@ -1,25 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Dancing+Script:wght@600;700&display=swap');
-
 :root {
-  --bg-primary: #FFFFFF; /* Pure White */
-  --bg-secondary: #F8F5FB; /* Very Light Purple/White mix */
-  --text-primary: #2D1B4E; /* Deep Dark Purple for text */
-  --text-secondary: #6B5B95; /* Muted Medium Purple */
-  --accent-primary: #7852FF; /* Bright Vibrant Purple */
-  --accent-hover: #5A35D4; /* Darker Vibrant Purple */
-  --border-color: #E6E1F1; /* Light Purple border */
+  /* Core Brand Colors (Light Mode Default) */
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8F5FB;
+  --text-primary: #2D1B4E;
+  --text-secondary: #6B5B95;
+  --accent-primary: #7852FF;
+  --accent-hover: #5A35D4;
+  --border-color: #E6E1F1;
   --glass-bg: rgba(255, 255, 255, 0.85);
   --glass-border: rgba(120, 82, 255, 0.15);
+
+  /* Unified Brand Palette (consistent with OurStory/Hero) */
+  --pu-darkest: #190B3B;
+  --pu-deep: #2D1B4E;
+  --pu-muted: #6B5B95;
+  --pu-accent: #7852FF;
+  --pu-light: #B28DFF;
+  --pu-bg-tint: #F8F5FB;
+  --pure-white: #FFFFFF;
+  
+  --transition-speed: 0.4s;
+}
+
+[data-theme='dark'] {
+  --bg-primary: #0F081D;
+  --bg-secondary: #190B3B;
+  --text-primary: #F8F5FB;
+  --text-secondary: #B28DFF;
+  --accent-primary: #9D80FF;
+  --accent-hover: #B28DFF;
+  --border-color: #2D1B4E;
+  --glass-bg: rgba(25, 11, 59, 0.85);
+  --glass-border: rgba(157, 128, 255, 0.2);
+
+  /* Override Brand Palette for Dark Mode */
+  --pu-darkest: #F8F5FB;
+  --pu-deep: #E6E1F1;
+  --pu-muted: #B28DFF;
+  --pu-accent: #9D80FF;
+  --pu-light: #7852FF;
+  --pu-bg-tint: #190B3B;
+  --pure-white: #0F081D;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease, border-color var(--transition-speed) ease;
 }
 
 body {
@@ -51,16 +85,16 @@ a {
 
 /* Utilities */
 .page-bg {
-  /* subtle modern background */
-  background: radial-gradient(1200px 600px at 50% -200px, #FFFFFF 0%, #FAF7FF 60%);
+  background: radial-gradient(1200px 600px at 50% -200px, var(--bg-primary) 0%, var(--bg-secondary) 60%);
   min-height: 100vh;
 }
 
 .glass-nav {
-  background: rgba(255, 255, 255, 0.90); /* White with opacity */
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--glass-border);
+  transition: background var(--transition-speed) ease, border-color var(--transition-speed) ease, padding 0.3s ease;
 }
 
 /* Base Card/Panel styling */

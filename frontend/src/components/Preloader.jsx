@@ -96,7 +96,7 @@ const Preloader = ({ onComplete }) => {
           {!isOnline && (
             <p className="animate-fadeIn" style={{
               fontFamily: 'Inter',
-              color: '#6B5B95',
+              color: 'var(--text-secondary)',
               fontSize: '14px',
               letterSpacing: '1px',
               opacity: 0.8

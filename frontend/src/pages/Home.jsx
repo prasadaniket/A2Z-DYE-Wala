@@ -53,7 +53,7 @@ const Home = () => {
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '25px' }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'rgba(44, 95, 45, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
+                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
                       <MapPin size={20} />
                     </div>
                     <div>
@@ -63,7 +63,7 @@ const Home = () => {
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'rgba(44, 95, 45, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
+                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
                       <Phone size={20} />
                     </div>
                     <div>
@@ -73,7 +73,7 @@ const Home = () => {
                   </div>
 
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
-                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'rgba(44, 95, 45, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
+                    <div style={{ width: '45px', height: '45px', borderRadius: '50%', backgroundColor: 'var(--glass-border)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--accent-primary)' }}>
                       <Mail size={20} />
                     </div>
                     <div>
