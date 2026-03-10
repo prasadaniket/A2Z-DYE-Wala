@@ -104,7 +104,7 @@ const Footer = () => {
           gap: '20px'
         }}>
           <p style={{ color: 'var(--text-secondary)', fontSize: '13px', letterSpacing: '1px', textTransform: 'uppercase' }}>
-            &copy; {new Date().getFullYear()} A2Z DYE WALA. All rights reserved.
+            &copy; {new Date().getFullYear()} UniCode. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '30px', fontSize: '13px', letterSpacing: '1px', color: 'var(--text-secondary)', textTransform: 'uppercase' }}>
             <Link to="#" className="hover-accent">Privacy Policy</Link>

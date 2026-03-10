@@ -5,9 +5,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![GSAP](https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 
-**A premium digital showroom where traditional jewelry craftsmanship meets state-of-the-art 3D visualization.**
+**A premium digital showroom where traditional jewelry craftsmanship meets state-of-the-art 3D visualization and AI-driven aesthetic design.**
 
-DYE Jewels (A2Z DYE Wala) is an immersive web experience designed to showcase high-end, bespoke jewelry with technical precision and sophisticated aesthetics. It transcends the traditional boundaries of jewelry making by intertwining legendary craftsmanship with avant-garde 3D precision.
+DYE Jewels (A2Z DYE Wala) is an immersive web experience designed to showcase high-end, bespoke jewelry with technical precision and sophisticated aesthetics. It transcends the traditional boundaries of jewelry making by intertwining legendary craftsmanship with avant-garde digital precision.
 
 ---
 
@@ -15,24 +15,26 @@ DYE Jewels (A2Z DYE Wala) is an immersive web experience designed to showcase hi
 
 ### 💎 Elite 3D Showcase
 A dedicated collection page featuring a curated selection of masterpieces. Each item includes:
-- **Interactive 3D Views**: Engaging "Digital Twins" of jewelry pieces.
+- **Interactive 3D Views**: Engaging "Digital Twins" of jewelry pieces powered by Spline.
 - **Technical Metadata**: Detailed specifications (ID, Karat, Weight).
-- **Architecture Views**: High-precision 3D scans powered by Spline.
-
+- **Architecture Views**: High-precision 3D scans for an uncompromising look at every facet.
 
 ### 🎬 Cinematic Motion Design
-Powered by **GSAP (GreenSock Animation Platform)** for a seamless premium feel:
-- **Staggered Reveals**: Elegant text and image entry animations.
-- **Horizontal Scrolling**: An interactive "Our Story" timeline that chronicles the brand's legacy.
-- **Parallax Effects**: Multi-layered depth transitions across the homepage.
+Powered by **GSAP (GreenSock Animation Platform)** for a seamless luxury feel:
+- **Staggered Reveals**: Elegant entrance animations for grids and text blocks.
+- **Horizontal Scrolling**: An interactive "The Chronicles" timeline on the Story page.
+- **Scroll-Triggered Interactivity**: Dynamic value cards that reveal details upon interaction.
+- **Fluid Logo Scaling**: A sophisticated navbar that adapts elegantly as you browse.
 
-### 🕰️ Heritage & Storytelling
-A deep dive into the brand's journey since 1990. Features a horizontal-scrolling chronicle of major milestones and the "Artisan Collective" showcasing the masters behind the gems.
+### 🎨 Premium Aesthetic & AI Visuals
+- **White & Purple Design System**: A meticulously curated brand palette focusing on high-contrast luxury.
+- **Custom AI Content**: Bespoke, macro-photographic imagery generated specifically to match the brand's unique lighting and mood.
+- **Minimalist UX**: A distraction-free, single-theme interface designed for high-net-worth clients.
 
-### ⚡ Performance-First Architecture
-- **Vite & React 19**: Lightning-fast builds and efficient rendering.
-- **Smart Preloader**: A minimalist preloader ensuring a cohesive first-run experience.
-- **Fluid Responsiveness**: Fully adaptive interface for luxury experiences on any device.
+### ⚡ Atomic & Modular Architecture
+- **Component-Driven Development**: High-performance sections (Contact, Values, Artisans) isolated for maximum stability and lag-free navigation.
+- **Vite & React 19**: Lightning-fast builds and state-of-the-art rendering.
+- **Smart Preloader**: A minimalist first-run experience that sets the tone for the atelier journey.
 
 ---
 
@@ -40,12 +42,33 @@ A deep dive into the brand's journey since 1990. Features a horizontal-scrolling
 
 | Layer | Technology |
 | :--- | :--- |
-| **Framework** | React.js (Vite) |
-| **3D Engine** | Spline (Runtime & Iframes) |
-| **Animation** | GSAP 3 (ScrollTrigger, Timelines) |
-| **Styling** | Tailwind CSS & Modern Vanilla CSS (Variables, Grid) |
+| **Framework** | React.js 19 (Vite) |
+| **3D Engine** | Spline (Runtime & High-fidelity Iframes) |
+| **Animation** | GSAP 3 (ScrollTrigger, Flip, Timelines) |
+| **Styling** | Modern Vanilla CSS (Variables) & Tailwind CSS |
 | **Icons** | Lucide React |
-| **Typography** | Playfair Display (Serif), Inter (Sans) |
+| **Typography** | Playfair Display (Serif), Inter (Sans), Dancing Script |
+
+---
+
+## 📂 Project Architecture
+
+```text
+frontend/
+├── src/
+│   ├── components/      # Atomic UI Modules
+│   │   ├── Navbar.jsx        # Fluid, scroll-aware navigation
+│   │   ├── Footer.jsx        # Grid-based luxury footer with watermark
+│   │   ├── AboutSec.jsx      # Editorial split-layout content
+│   │   ├── ValueSec.jsx      # Interactive tenet cards with reveal effects
+│   │   ├── ContactUs.jsx     # High-conversion premium form
+│   │   └── ArtisansCarousel.js# Cinematic horizontal infinite scroll
+│   ├── pages/           # Orchestration Views (Home, OurStory, Collection)
+│   ├── assets/          # Custom AI-generated brand imagery
+│   ├── App.jsx          # Route management
+│   └── index.css        # Global design tokens and root variables
+└── vite.config.js       # Build optimization configuration
+```
 
 ---
 
@@ -53,7 +76,7 @@ A deep dive into the brand's journey since 1990. Features a horizontal-scrolling
 
 ### Prerequisites
 - **Node.js**: v18.x or higher
-- **Package Manager**: npm or yarn
+- **Package Manager**: npm
 
 ### Installation
 
@@ -73,27 +96,6 @@ A deep dive into the brand's journey since 1990. Features a horizontal-scrolling
    npm run dev
    ```
 
-4. **Production Build**
-   ```bash
-   npm run build
-   ```
-
----
-
-## 📂 Project Architecture
-
-```text
-frontend/
-├── src/
-│   ├── components/      # Reusable UI (Hero, Navbar, Preloader, Footer)
-│   ├── pages/           # Route-specific views (Home, Collection, OurStory)
-│   ├── assets/          # Brand logos, static imagery, and model previews
-│   ├── App.jsx          # Root component and Routing
-│   └── index.css        # Core Design System, Root Variables, and Keyframes
-├── public/              # Static assets (3D previews, Favicons)
-└── tailwind.config.js   # Custom brand palettes and extension
-```
-
 ---
 
 ## 🌟 Vision
@@ -105,12 +107,6 @@ Our goal is to transcend the traditional boundaries of jewelry making. By intert
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 <p align="center">
-  Crafted with ✨ by the DYE Jewels Tech Team
+  Crafted with ✨ by UniCode Tech Team
 </p>
