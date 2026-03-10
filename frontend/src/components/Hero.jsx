@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
-import { ArrowUpRight, Diamond, Star, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, Diamond } from 'lucide-react';
+import Spline from '@splinetool/react-spline';
 import './Hero.css';
 
 const Hero = () => {
@@ -15,8 +16,8 @@ const Hero = () => {
       gsap.set(".hero-v2-eyebrow", { opacity: 0, y: 20 });
       gsap.set(".hero-v2-description", { opacity: 0, y: 30 });
       gsap.set(".hero-v2-cta", { opacity: 0, y: 40 });
+      gsap.set(".hero-spline-wrapper", { opacity: 0, scale: 0.95 });
       gsap.set(".visual-main-frame", { scale: 1.1, opacity: 0, x: 50 });
-      gsap.set(".visual-badge", { opacity: 0, scale: 0.8 });
       gsap.set(".hero-v2-title span", { yPercent: 120, opacity: 0 });
 
       // 2. Entrance Animation Timeline
@@ -30,35 +31,34 @@ const Hero = () => {
         stagger: 0.15,
         delay: 0.4
       })
-      .to(".hero-v2-eyebrow", {
-        opacity: 1,
-        y: 0,
-        duration: 1
-      }, "-=1.2")
-      .to(".hero-v2-description", {
-        opacity: 1,
-        y: 0,
-        duration: 1.2
-      }, "-=1")
-      .to(".hero-v2-cta", {
-        opacity: 1,
-        y: 0,
-        duration: 1.2
-      }, "-=1")
-      .to(".visual-main-frame", {
-        opacity: 1,
-        scale: 1,
-        x: 0,
-        duration: 2,
-        ease: "expo.out"
-      }, "-=2")
-      .to(".visual-badge", {
-        opacity: 1,
-        scale: 1,
-        stagger: 0.3,
-        duration: 1.2,
-        ease: "back.out(1.7)"
-      }, "-=1");
+        .to(".hero-v2-eyebrow", {
+          opacity: 1,
+          y: 0,
+          duration: 1
+        }, "-=1.2")
+        .to(".hero-v2-description", {
+          opacity: 1,
+          y: 0,
+          duration: 1.2
+        }, "-=1")
+        .to(".hero-v2-cta", {
+          opacity: 1,
+          y: 0,
+          duration: 1.2
+        }, "-=1")
+        .to(".hero-spline-wrapper", {
+          opacity: 1,
+          scale: 1,
+          duration: 2.5,
+          ease: "expo.out"
+        }, "-=1.5")
+        .to(".visual-main-frame", {
+          opacity: 1,
+          scale: 1,
+          x: 0,
+          duration: 2,
+          ease: "expo.out"
+        }, "-=2");
 
       // 3. Subtle Floating Animations
       gsap.to(".hero-ambient-orb", {
@@ -68,23 +68,6 @@ const Hero = () => {
         repeat: -1,
         yoyo: true,
         ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-top", {
-        y: "-15px",
-        duration: 2.5,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-      });
-
-      gsap.to(".badge-bottom", {
-        y: "15px",
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut",
-        delay: 0.5
       });
 
       // 4. Visual Parallax Effect
@@ -116,8 +99,31 @@ const Hero = () => {
       <div className="hero-line-decoration"></div>
 
       <div className="hero-v2-container">
+        {/* Premium Iframe Model Treatment */}
+        <div className="hero-spline-wrapper" style={{
+          position: 'absolute',
+          top: 0,
+          right: '-15%',
+          width: '70%',
+          height: '100%',
+          zIndex: 1,
+          pointerEvents: 'none',
+          overflow: 'hidden'
+        }}>
+          <iframe
+            src="https://my.spline.design/louisvuittonaquamarine-ymnsd6HVSpLeRRKw6uyDjPAA/?optimized"
+            frameBorder="0"
+            width="100%"
+            height="100%"
+            importance="high"
+            loading="eager"
+            title="Louis Vuitton Aquamarine Model"
+            style={{ border: 'none' }}
+          ></iframe>
+        </div>
+
         {/* Left Side: Content */}
-        <div className="hero-v2-content">
+        <div className="hero-v2-content" style={{ position: 'relative', zIndex: 10 }}>
           <span className="hero-v2-eyebrow">Exquisite Craftsmanship / Est. 1990</span>
           <h1 className="hero-v2-title">
             <span>Sculpting <em>Dreams</em></span>
@@ -125,18 +131,18 @@ const Hero = () => {
             <span>Reality.</span>
           </h1>
           <p className="hero-v2-description">
-            Experience the confluence of traditional artistry and digital precision. 
-            We forge bespoke artifacts that transcend generations, 
+            Experience the confluence of traditional artistry and digital precision.
+            We forge bespoke artifacts that transcend generations,
             crafted with 100% sustainably sourced diamonds and pure gold.
           </p>
-          
+
           <div className="hero-v2-cta">
             <Link to="/collection" className="btn-v2 btn-v2-primary">
               The Collection <ArrowUpRight size={18} />
             </Link>
-            <Link to="/our-story" style={{ 
-              color: 'var(--pu-darkest)', 
-              fontWeight: '600', 
+            <Link to="/our-story" style={{
+              color: 'var(--pu-darkest)',
+              fontWeight: '600',
               fontSize: '0.875rem',
               letterSpacing: '0.1em',
               textTransform: 'uppercase',
@@ -150,31 +156,9 @@ const Hero = () => {
         </div>
 
         {/* Right Side: High-End Visuals */}
-        <div className="hero-v2-visual" ref={visualRef}>
-          {/* Top Badge */}
-          <div className="visual-badge badge-top">
-            <span className="badge-label">Exclusivity</span>
-            <span className="badge-value">Collector's Grade</span>
-            <div style={{ display: 'flex', gap: '2px', color: '#fbbf24' }}>
-              <Star size={10} fill="#fbbf24" /><Star size={10} fill="#fbbf24" /><Star size={10} fill="#fbbf24" />
-            </div>
-          </div>
-
-          <div className="visual-main-frame">
-            <img 
-              src="https://images.unsplash.com/photo-1599643478524-fb66f4558f6c?auto=format&fit=crop&q=80&w=1200" 
-              alt="Luxury Diamond Ring"
-              className="visual-image"
-            />
-          </div>
-
-          {/* Bottom Badge */}
-          <div className="visual-badge badge-bottom">
-            <span className="badge-label">Precision</span>
-            <span className="badge-value">3D Visualized</span>
-            <span style={{ fontSize: '10px', color: 'var(--pu-accent)', fontWeight: '700' }}>
-              100% ACCURACY <ExternalLink size={10} style={{ marginLeft: '4px' }} />
-            </span>
+        <div className="hero-v2-visual" ref={visualRef} style={{ position: 'relative', zIndex: 10 }}>
+          <div className="visual-main-frame" style={{ opacity: 0, visibility: 'hidden' }}>
+            {/* Kept for GSAP target stability but hidden, Spline now floats independently */}
           </div>
         </div>
       </div>

@@ -16,7 +16,7 @@
   width: 600px;
   height: 600px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(178,141,255,0.15) 0%, rgba(255,255,255,0) 70%);
+  background: radial-gradient(circle, rgba(178, 141, 255, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
   pointer-events: none;
   z-index: 0;
   filter: blur(40px);
@@ -114,9 +114,11 @@
   .hero-section-v2 {
     flex-direction: column;
   }
+
   .hero-right-v2 {
     height: 50vh;
   }
+
   .hero-left-v2 {
     padding: 10vh 5vw;
   }
@@ -224,12 +226,15 @@
   border: 1px solid rgba(120, 82, 255, 0.2);
   position: relative;
 }
+
 .outro-circle::after {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 10px; height: 10px;
+  width: 10px;
+  height: 10px;
   background-color: var(--pu-accent);
   border-radius: 50%;
 }
@@ -387,14 +392,27 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+
   .value-card-parallax {
     width: calc(50% - 2rem);
     max-width: 400px;
   }
-  .value-card-0 { margin-top: 5rem; }
-  .value-card-1 { margin-top: 0; }
-  .value-card-2 { margin-top: 8rem; }
-  .value-card-3 { margin-top: -3rem; }
+
+  .value-card-0 {
+    margin-top: 5rem;
+  }
+
+  .value-card-1 {
+    margin-top: 0;
+  }
+
+  .value-card-2 {
+    margin-top: 8rem;
+  }
+
+  .value-card-3 {
+    margin-top: -3rem;
+  }
 }
 
 /* --- Artisans Section (Carousel) --- */
@@ -472,7 +490,8 @@
 }
 
 /* Side Fades */
-.fade-left, .fade-right {
+.fade-left,
+.fade-right {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -493,7 +512,22 @@
 
 .slider-track {
   display: flex;
-  transition: transform 0.5s ease-in-out;
+  width: max-content;
+  animation: scroll 100s linear infinite;
+}
+
+.slider-track.paused {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .card-wrapper {
@@ -572,7 +606,8 @@
   border-radius: 1.5rem;
   overflow: hidden;
   width: 320px;
-  height: 480px; /* Adjusted from 384px to be taller like the ref */
+  height: 480px;
+  /* Adjusted from 384px to be taller like the ref */
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -688,7 +723,7 @@
 .team-heading {
   color: var(--pure-white);
   margin-bottom: 4rem;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 2rem;
 }
 
@@ -698,7 +733,7 @@
 }
 
 .team-member-row {
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding: 2.5rem 0;
   position: relative;
   cursor: pointer;
@@ -751,7 +786,7 @@
   pointer-events: none;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 5;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .team-member-row:hover .team-hover-img-wrapper {

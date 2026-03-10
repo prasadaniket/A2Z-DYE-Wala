@@ -40,12 +40,12 @@ const Navbar = () => {
       padding: isScrolled ? '10px 0' : '15px 0',
     }}>
       <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        
+
         {/* Brand Logo */}
         <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
-          <img 
-            src="/assets/Logo/DYE logo.png" 
-            alt="DYE Logo" 
+          <img
+            src="/assets/Logo/DYE logo.png"
+            alt="DYE Logo"
             style={{ height: '55px', objectFit: 'contain' }}
           />
         </Link>
@@ -53,9 +53,9 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div style={{ display: 'flex', gap: '35px', alignItems: 'center' }} className="desktop-menu">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
-              to={link.path} 
+            <Link
+              key={link.name}
+              to={link.path}
               className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
               style={{
                 fontFamily: 'Inter',
@@ -70,9 +70,9 @@ const Navbar = () => {
               {link.name}
             </Link>
           ))}
-          
+
           {/* Theme Toggle Button */}
-          <button 
+          <button
             onClick={toggleTheme}
             className="theme-toggle"
             style={{
@@ -96,14 +96,14 @@ const Navbar = () => {
 
         {/* Mobile Toggle & Actions */}
         <div className="mobile-actions" style={{ display: 'none', gap: '15px' }}>
-          <button 
+          <button
             onClick={toggleTheme}
             style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
           >
             {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
           </button>
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} 
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
           >
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -127,8 +127,8 @@ const Navbar = () => {
           boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
         }} className="mobile-menu">
           {navLinks.map((link) => (
-            <Link 
-              key={link.name} 
+            <Link
+              key={link.name}
               to={link.path}
               onClick={() => setIsMobileMenuOpen(false)}
               style={{

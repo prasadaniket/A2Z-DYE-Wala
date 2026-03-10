@@ -71,17 +71,17 @@ const Preloader = ({ onComplete }) => {
       <div className="preloader-visual-v2">
         <div className="diamond-container">
           <div className="diamond-glow"></div>
-          <img 
+          <img
             ref={diamondRef}
-            src="/assets/Logo/DYE web logo.png" 
-            alt="DYE Diamond Preloader" 
-            style={{ 
-              width: '120px', 
-              height: '120px', 
-              objectFit: 'contain', 
+            src="/assets/Logo/DYE web logo.png"
+            alt="DYE Diamond Preloader"
+            style={{
+              width: '120px',
+              height: '120px',
+              objectFit: 'contain',
               zIndex: 10,
               filter: 'drop-shadow(0 0 15px rgba(120, 82, 255, 0.3))'
-            }} 
+            }}
           />
         </div>
 

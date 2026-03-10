@@ -2,7 +2,7 @@
 .hero-v2-wrapper {
   position: relative;
   min-height: 95vh;
-  background-color: var(--pure-white);
+  background-color: #f0f0f0;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -112,7 +112,7 @@
   aspect-ratio: 4/5;
   border-radius: 2rem;
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
 }
 
 .visual-image {
@@ -188,16 +188,21 @@
     padding-top: 5rem;
     padding-bottom: 5rem;
   }
-  
+
   .hero-v2-content {
     align-items: center;
   }
-  
+
   .hero-v2-visual {
     max-width: 500px;
     margin: 0 auto;
   }
-  
-  .badge-top { left: 0; }
-  .badge-bottom { right: 0; }
+
+  .badge-top {
+    left: 0;
+  }
+
+  .badge-bottom {
+    right: 0;
+  }
 }
