@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Diamond, Shield, Leaf, Heart, Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Diamond, Shield, Leaf, Heart, Star } from 'lucide-react';
 import './OurStory.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -390,7 +390,7 @@ const OurStory = () => {
                           <h4 className="feat-name" style={{ fontFamily: 'cursive' }}>{artisan.name}</h4>
                           <p className="feat-role" style={{ marginBottom: '1rem' }}>{artisan.role}</p>
                           <blockquote style={{ fontSize: '0.875rem', lineStyle: 'italic', marginBottom: '1.5rem' }}>
-                            "{artisan.bio}"
+                            &quot;{artisan.bio}&quot;
                           </blockquote>
                           <div className="flex items-center justify-center gap-1">
                             {renderStars(artisan.rating)}
@@ -408,7 +408,7 @@ const OurStory = () => {
                             <p className="profile-specialty">{artisan.handle}</p>
                           </div>
                         </div>
-                        <p className="card-quote">"{artisan.bio}"</p>
+                        <p className="card-quote">&quot;{artisan.bio}&quot;</p>
                         <div className="flex items-center">
                           {renderStars(artisan.rating)}
                           <span className="rating-value">{artisan.rating}</span>

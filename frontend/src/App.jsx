@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -10,7 +10,7 @@ import './index.css';
 
 function App() {
   // Only show preloader on Home page ('/') upon refresh
-  const [isLoading, setIsLoading] = React.useState(window.location.pathname === '/');
+  const [isLoading, setIsLoading] = useState(window.location.pathname === '/');
 
   return (
     <BrowserRouter>

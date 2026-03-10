@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Box, Diamond, ArrowUpRight, Maximize2, Sparkles, Layers } from 'lucide-react';
+
 import './Collection.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -33,7 +33,7 @@ const collectionItems = [
 
 const Collection = () => {
   const containerRef = useRef(null);
-  const [active3D, setActive3D] = React.useState({});
+  const [active3D, setActive3D] = useState({});
 
   const toggle3D = (id) => {
     setActive3D(prev => ({

@@ -1,14 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ArrowUpRight, Diamond } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 import './Hero.css';
 
 const Hero = () => {
   const containerRef = useRef(null);
   const visualRef = useRef(null);
-  const titleLinesRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {

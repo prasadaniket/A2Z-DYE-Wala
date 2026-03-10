@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone } from 'lucide-react';
 import Hero from '../components/Hero';
@@ -30,7 +30,7 @@ const Home = () => {
             Crafting the Extraordinary
           </h2>
           <p style={{ maxWidth: '700px', margin: '0 auto 40px', color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            At A2Z DYE Wala, we merge generations of traditional jewelry craftsmanship with cutting-edge 3D visualization. We don't just sell jewelry—we bring your most precious visions into physical reality with 100% sustainably sourced diamonds and pure gold.
+            At A2Z DYE Wala, we merge generations of traditional jewelry craftsmanship with cutting-edge 3D visualization. We don&apos;t just sell jewelry—we bring your most precious visions into physical reality with 100% sustainably sourced diamonds and pure gold.
           </p>
           <Link to="/our-story" className="btn btn-primary" style={{ display: 'inline-flex' }}>
             Discover Our Story

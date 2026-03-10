@@ -1,12 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import './Preloader.css';
 
 const Preloader = ({ onComplete }) => {
   const containerRef = useRef(null);
   const diamondRef = useRef(null);
-  const [isOnline, setIsOnline] = React.useState(navigator.onLine);
-  const [minTimeElapsed, setMinTimeElapsed] = React.useState(false);
+  const [isOnline, setIsOnline] = useState(navigator.onLine);
+  const [minTimeElapsed, setMinTimeElapsed] = useState(false);
 
   useEffect(() => {
     // 1. Monitor network status
