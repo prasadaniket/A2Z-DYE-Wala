@@ -28,26 +28,7 @@
   --transition-speed: 0.4s;
 }
 
-[data-theme='dark'] {
-  --bg-primary: #0F081D;
-  --bg-secondary: #190B3B;
-  --text-primary: #F8F5FB;
-  --text-secondary: #B28DFF;
-  --accent-primary: #9D80FF;
-  --accent-hover: #B28DFF;
-  --border-color: #2D1B4E;
-  --glass-bg: rgba(25, 11, 59, 0.85);
-  --glass-border: rgba(157, 128, 255, 0.2);
 
-  /* Override Brand Palette for Dark Mode */
-  --pu-darkest: #F8F5FB;
-  --pu-deep: #E6E1F1;
-  --pu-muted: #B28DFF;
-  --pu-accent: #9D80FF;
-  --pu-light: #7852FF;
-  --pu-bg-tint: #190B3B;
-  --pure-white: #0F081D;
-}
 
 * {
   margin: 0;

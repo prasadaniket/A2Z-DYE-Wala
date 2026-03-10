@@ -19,10 +19,6 @@ A dedicated collection page featuring a curated selection of masterpieces. Each 
 - **Technical Metadata**: Detailed specifications (ID, Karat, Weight).
 - **Architecture Views**: High-precision 3D scans powered by Spline.
 
-### 🌓 Immersive Theme System
-A sophisticated synchronized theme system (Day/Night) that transforms the entire application:
-- **Glassmorphism**: Dynamic glass effects that respond to theme changes.
-- **Atmospheric Backgrounds**: Custom radial gradients and ambient orbs.
 
 ### 🎬 Cinematic Motion Design
 Powered by **GSAP (GreenSock Animation Platform)** for a seamless premium feel:
@@ -92,7 +88,7 @@ frontend/
 │   ├── components/      # Reusable UI (Hero, Navbar, Preloader, Footer)
 │   ├── pages/           # Route-specific views (Home, Collection, OurStory)
 │   ├── assets/          # Brand logos, static imagery, and model previews
-│   ├── App.jsx          # Root component, Routing, and Theme Orchestration
+│   ├── App.jsx          # Root component and Routing
 │   └── index.css        # Core Design System, Root Variables, and Keyframes
 ├── public/              # Static assets (3D previews, Favicons)
 └── tailwind.config.js   # Custom brand palettes and extension

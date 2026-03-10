@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
   const location = useLocation();
 
   useEffect(() => {
@@ -16,14 +15,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme(prev => prev === 'light' ? 'dark' : 'light');
-  };
+    setIsMobileMenuOpen(false);
+  }, [location.pathname]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -32,141 +27,202 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`glass-nav ${isScrolled ? 'scrolled' : ''}`} style={{
-      position: 'sticky',
-      top: 0,
-      zIndex: 100,
-      transition: 'all 0.3s ease',
-      padding: isScrolled ? '10px 0' : '15px 0',
-    }}>
-      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+    <nav className={`premium-nav ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
 
         {/* Brand Logo */}
-        <Link to="/" style={{ display: 'flex', alignItems: 'center' }}>
+        <Link to="/" className="brand-logo-link">
           <img
             src="/assets/Logo/DYE logo.png"
             alt="DYE Logo"
-            style={{ height: '55px', objectFit: 'contain' }}
+            className="brand-logo"
+            style={{ 
+              height: isScrolled ? '45px' : '55px', 
+              transition: 'height 0.3s ease',
+              objectFit: 'contain' 
+            }}
           />
         </Link>
 
         {/* Desktop Menu */}
-        <div style={{ display: 'flex', gap: '35px', alignItems: 'center' }} className="desktop-menu">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              className={`nav-link ${location.pathname === link.path ? 'active' : ''}`}
-              style={{
-                fontFamily: 'Inter',
-                fontSize: '20px',
-                fontWeight: location.pathname === link.path ? '600' : '400',
-                color: location.pathname === link.path ? 'var(--accent-primary)' : 'var(--text-primary)',
-                transition: 'color 0.3s ease',
-                position: 'relative',
-                padding: '2px 0'
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
-
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="theme-toggle"
-            style={{
-              background: 'var(--bg-secondary)',
-              border: '1px solid var(--border-color)',
-              color: 'var(--text-primary)',
-              width: '45px',
-              height: '45px',
-              borderRadius: '50%',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              cursor: 'pointer',
-              marginLeft: '10px',
-              transition: 'all 0.3s ease'
-            }}
-          >
-            {theme === 'light' ? <Moon size={20} fill="currentColor" /> : <Sun size={20} />}
-          </button>
+        <div className="desktop-menu">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`nav-link ${isActive ? 'active' : ''}`}
+              >
+                <span className="nav-text">{link.name}</span>
+                <span className="nav-dot" />
+              </Link>
+            );
+          })}
         </div>
 
         {/* Mobile Toggle & Actions */}
-        <div className="mobile-actions" style={{ display: 'none', gap: '15px' }}>
-          <button
-            onClick={toggleTheme}
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
-          >
-            {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
-          </button>
+        <div className="mobile-actions">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            style={{ background: 'transparent', border: 'none', color: 'var(--text-primary)', cursor: 'pointer' }}
+            className="mobile-menu-btn"
           >
             {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div style={{
-          position: 'absolute',
-          top: '100%',
-          left: 0,
-          right: 0,
-          background: 'var(--bg-secondary)',
-          borderBottom: '1px solid var(--border-color)',
-          padding: '20px',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '20px',
-          boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'
-        }} className="mobile-menu">
-          {navLinks.map((link) => (
-            <Link
-              key={link.name}
-              to={link.path}
-              onClick={() => setIsMobileMenuOpen(false)}
-              style={{
-                fontFamily: 'Inter',
-                fontSize: '16px',
-                fontWeight: location.pathname === link.path ? '600' : '400',
-                color: location.pathname === link.path ? 'var(--accent-primary)' : 'var(--text-primary)'
-              }}
-            >
-              {link.name}
-            </Link>
-          ))}
+      {/* Mobile Menu Dropdown Wrapper */}
+      <div className={`mobile-menu-overlay ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className="mobile-menu-container">
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className={`mobile-nav-link ${isActive ? 'active' : ''}`}
+              >
+                {link.name}
+              </Link>
+            );
+          })}
         </div>
-      )}
+      </div>
 
       <style>{`
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          width: 80%;
-          height: 2px;
-          bottom: 0;
-          left: 0;
-          background-color: var(--accent-primary);
-          transform: scaleX(0);
-          transform-origin: bottom right;
-          transition: transform 0.4s ease-out;
+        /* Core Nav Structure */
+        .premium-nav {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          height: 90px;
+          transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease, border-color 0.4s ease;
+          background: transparent;
+          border-bottom: 1px solid transparent;
+        }
+        
+        .premium-nav.scrolled {
+          height: 70px;
+          background: var(--glass-bg);
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          border-bottom: 1px solid var(--glass-border);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
         }
 
-        .nav-link:hover::after,
-        .nav-link.active::after {
-          transform: scaleX(1);
-          transform-origin: bottom left;
+        /* Desktop Menu */
+        .desktop-menu {
+          display: flex;
+          align-items: center;
+          gap: 40px;
+        }
+
+        /* Nav Links */
+        .nav-link {
+          position: relative;
+          font-family: 'Inter', sans-serif;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: var(--text-primary);
+          padding: 8px 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .nav-text {
+          transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav-link:hover .nav-text {
+          color: var(--accent-primary);
+          transform: translateY(-2px);
+        }
+
+        .nav-link.active .nav-text {
+          color: var(--accent-primary);
+        }
+
+        /* Premium Dot Indicator */
+        .nav-dot {
+          position: absolute;
+          bottom: -4px;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: var(--accent-primary);
+          opacity: 0;
+          transform: scale(0);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover .nav-dot,
+        .nav-link.active .nav-dot {
+          opacity: 1;
+          transform: scale(1);
+        }
+
+        /* Mobile Layout */
+        .mobile-actions {
+          display: none;
+        }
+
+        .mobile-menu-btn {
+          background: transparent;
+          border: none;
+          color: var(--text-primary);
+          cursor: pointer;
+          padding: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        /* Mobile Overlay */
+        .mobile-menu-overlay {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          width: 100%;
+          background: var(--bg-secondary);
+          border-bottom: 1px solid var(--border-color);
+          overflow: hidden;
+          max-height: 0;
+          opacity: 0;
+          transition: max-height 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+          box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-menu-overlay.open {
+          max-height: 400px;
+          opacity: 1;
+        }
+
+        .mobile-menu-container {
+          display: flex;
+          flex-direction: column;
+          padding: 20px 30px 40px;
+          gap: 25px;
+        }
+
+        .mobile-nav-link {
+          font-family: 'Playfair Display', serif;
+          font-size: 24px;
+          color: var(--text-secondary);
+          transition: color 0.3s ease, padding-left 0.3s ease;
+        }
+
+        .mobile-nav-link:hover, .mobile-nav-link.active {
+          color: var(--accent-primary);
+          padding-left: 10px;
         }
 
         @media (max-width: 768px) {
           .desktop-menu { display: none !important; }
-          .mobile-actions { display: flex !important; }
+          .mobile-actions { display: flex !important; gap: 10px; }
         }
       `}</style>
     </nav>
