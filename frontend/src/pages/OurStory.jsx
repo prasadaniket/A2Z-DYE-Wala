@@ -10,8 +10,7 @@ const OurStory = () => {
   const containerRef = useRef(null);
   const horizontalSectionRef = useRef(null);
   const orbRef = useRef(null);
-  const anchorRef = useRef(null);
-  const scrollContainerRef = useRef(null);
+
   const [isPaused, setIsPaused] = useState(false);
 
   const artisans = [
